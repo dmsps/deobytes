@@ -1,0 +1,252 @@
+@import "variables.scss";
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.el-main {
+    padding: 0 !important;
+}
+
+.el-carousel__indicators--outside {
+    position: absolute;
+    bottom: 0;
+}
+
+.page__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    z-index: 11111;
+}
+
+.slide {
+    &__container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // &__banner {
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: contain;
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     right: 0;
+    //     bottom: 0;
+    //     z-index: -1;
+    // }
+
+    &__banner {
+        object-fit: contain;
+        // width: 90%;
+        max-width: 950px;
+        max-height: 550px;
+        box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09),
+            0 8px 4px rgba(0, 0, 0, 0.09), 0 16px 8px rgba(0, 0, 0, 0.09),
+            0 32px 16px rgba(0, 0, 0, 0.09);
+        background-color: transparent;
+
+        @include mq($mobile) {
+            width: 70%;
+            height: auto;
+            max-height: 150px;
+
+            &--without-shadow {
+                box-shadow: none;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 50px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 5%;
+
+        @include mq($mobile) {
+            font-size: 42px;
+        }
+    }
+
+    &__subtitle {
+        width: 100%;
+        max-width: 500px;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 1%;
+        padding: 0 20px;
+
+        @include mq($mobile) {
+            width: 90%;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 5% 10% 10% 10%;
+
+        @include mq($mobile) {
+            padding: 10% 0;
+        }
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    top: 42%;
+
+    @include mq($mobile) {
+        top: 24%;
+    }
+}
+
+.swiper-button-next {
+    right: 5%;
+
+    @include mq($mobile) {
+        right: 3%;
+    }
+}
+
+.swiper-button-prev {
+    left: 5%;
+
+    @include mq($mobile) {
+        left: 3%;
+    }
+}
+
+.slider__main {
+    height: 100vh;
+
+    @include mq($mobile) {
+        height: auto;
+        margin-top: 100px;
+        margin-bottom: 30px;
+    }
+}
+
+.banner__main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #130f40;
+    background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+    text-align: center;
+    color: white;
+
+    &__title {
+        font-size: 70px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px black;
+
+        @include mq($mobile) {
+            font-size: 30px;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 35px;
+    }
+}
+
+.subscribe {
+    position: fixed;
+    bottom: 7%;
+    right: 7%;
+    z-index: 1111111;
+
+    &__wrapper {
+        position: relative;
+        background-color: black;
+        width: 68px;
+        height: 68px;
+        border-radius: 50px;
+        transition: width 500ms;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+        color: white;
+
+        &.active {
+            width: 250px;
+
+            .subscribe__title {
+                opacity: 1;
+                transition: opacity 500ms ease-in-out 100ms;
+                font-weight: 300;
+                overflow: hidden;
+            }
+
+            .subscribe__icon {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__title {
+        opacity: 0;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        transition: opacity 200ms ease-in;
+        font-size: 20px;
+    }
+}
+
+.card {
+    &__item {
+        @include mq($mobile) {
+            flex-basis: 85% !important;
+        }
+
+        &__link {
+            @include mq($mobile) {
+                font-size: 22px !important;
+            }
+        }
+    }
+}
+
+.logo {
+    display: flex;
+    padding: 16px;
+    border-radius: 14px;
+    background: black;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+
+    &.white {
+        svg {
+            fill: #ffffff;
+        }
+    }
+}
+
+.gray-bg {
+    background-color: $--color-gray-light;
+}
+
+:root {
+    --swiper-theme-color: black;
+}

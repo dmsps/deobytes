@@ -1,0 +1,16 @@
+// breakpoints
+$mobile: 990;
+
+$--color-primary: black;
+$--color-gray-light: #f7f8fc;
+
+$--font-path: "~element-ui/lib/theme-chalk/fonts";
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+@mixin mq($width) {
+    @media only screen and (max-width: $width + "px") {
+        @content;
+    }
+}
+
